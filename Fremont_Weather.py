@@ -22,7 +22,7 @@ class YahooAPITest(unittest.TestCase):
         yql_url = baseurl + urllib.urlencode({'q':yql_query}) + "&format=json"
         result = urllib.urlopen(yql_url).read()
         data = json.loads(result)
-        self.assertEqual(data['query']['results']['channel']['astronomy']['sunrise'], "6:46 am", "Invalid sunrise time")
+        self.assertEqual(data['query']['results']['channel']['astronomy']['sunrise'], "6:47 am", "Invalid sunrise time")
 
 suite = unittest.TestLoader().loadTestsFromTestCase(YahooAPITest)
 unittest.TextTestRunner(verbosity=2).run(suite)
