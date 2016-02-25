@@ -4,11 +4,20 @@ Created on Feb 24, 2016
 @author: User
 '''
 
+import unittest
 
-import urllib2, urllib, json
-baseurl = "https://query.yahooapis.com/v1/public/yql?"
-yql_query = "select wind from weather.forecast where woeid=2407405"
-yql_url = baseurl + urllib.urlencode({'q':yql_query}) + "&format=json"
-result = urllib2.urlopen(yql_url).read()
-data = json.loads(str(result))
-print data['query']['results']
+class SimpleTest(unittest.TestCase):
+    
+    def test1(self):
+        a = 1;
+        b = 1;
+        self.assertEqual(a, b, "values aren't equal")
+    
+    def test2(self):
+        a = 2;
+        b = 1;
+        self.assertGreater(a, b, "b is greater than a")
+        
+
+suite = unittest.TestLoader().loadTestsFromTestCase(SimpleTest)
+unittest.TextTestRunner(verbosity=2).run(suite)
